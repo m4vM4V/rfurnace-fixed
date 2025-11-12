@@ -25,7 +25,7 @@ const char* aboutLine[]={
   "filippp (originally tildearrow)",
   _N("is proud to present"),
   "",
-  ("Furnace " DIV_VERSION),
+  ("RFurnace " DIV_VERSION),
   "",
   _N("the biggest multi-system chiptune tracker!"),
   _N("featuring DefleMask song compatibility."),
