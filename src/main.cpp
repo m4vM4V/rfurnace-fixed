@@ -657,7 +657,7 @@ void initParams() {
 
   params.push_back(TAParam("B","benchmark",true,pBenchmark,"render|seek|walk","run performance test"));
 
-  params.push_back(TAParam("V","version",false,pVersion,"","view information about Furnace."));
+  params.push_back(TAParam("V","version",false,pVersion,"","view information about RFurnace."));
   params.push_back(TAParam("W","warranty",false,pWarranty,"","view warranty disclaimer."));
 }
 
@@ -665,7 +665,7 @@ void initParams() {
 void reportError(String what) {
   logE("%s",what);
   if (!noReportError) {
-    MessageBox(NULL,what.c_str(),"Furnace",MB_OK|MB_ICONERROR);
+    MessageBox(NULL,what.c_str(),"RFurnace",MB_OK|MB_ICONERROR);
   }
 }
 #elif defined(ANDROID) || defined(__APPLE__)

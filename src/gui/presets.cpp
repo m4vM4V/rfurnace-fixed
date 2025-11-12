@@ -2684,7 +2684,38 @@ void FurnaceGUI::initSystemPresets() {
         CH(DIV_SYSTEM_MULTIPCM, 1.0f, 0, "")
       }
     );
-
+    ENTRY(
+      _("Polish Ones"), {}
+    );
+      SUB_ENTRY(
+        _("REMBOL SYSTEM 1 (really custom bruh)"), {
+          CH(DIV_SYSTEM_OPL2, 1.0f, 0, "clockSel=1"),
+          CH(DIV_SYSTEM_AY8930, 1.0f, 0, "clockSel=3")
+        }
+      );
+      SUB_ENTRY(
+        _("REMBOL SYSTEM TURBOSOUND (better custom one)"), {
+          CH(DIV_SYSTEM_OPL2, 1.0f, 0, "clockSel=1"),
+          CH(DIV_SYSTEM_AY8930, 1.0f, 0, "clockSel=3"),
+          CH(DIV_SYSTEM_OPL2, 1.0f, 0, "clockSel=1"),
+          CH(DIV_SYSTEM_AY8930, 1.0f, 0, "clockSel=3")
+        }
+      );
+      ENTRY(
+        _("SlashX Studios"), {}
+      );
+        SUB_ENTRY(
+          _("XpC model 1000 (SlashX Studios)"), {
+            CH(DIV_SYSTEM_AY8910, 1.0f, 0, "clockSel=3"),
+            CH(DIV_SYSTEM_SCC_PLUS, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCM_DAC, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCM_DAC, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCM_DAC, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCM_DAC, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCM_DAC, 1.0f, 0, ""),
+            CH(DIV_SYSTEM_PCSPKR, 1.0f, 0, "")
+          }
+        );
   ENTRY(
     _("Seta"), {}
   );

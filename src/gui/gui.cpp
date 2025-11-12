@@ -705,18 +705,18 @@ void FurnaceGUI::updateWindowTitle() {
   String title;
   switch (settings.titleBarInfo) {
     case 0:
-      title="Furnace";
+      title="RFurnace";
       break;
     case 1:
       if (e->song.name.empty()) {
-        title="Furnace";
+        title="RFurnace";
       } else {
-        title=fmt::sprintf("%s - Furnace",e->song.name);
+        title=fmt::sprintf("%s - RFurnace",e->song.name);
       }
       break;
     case 2:
       if (curFileName.empty()) {
-        title="Furnace";
+        title="RFurnace";
       } else {
         String shortName;
         size_t pos=curFileName.rfind(DIR_SEPARATOR);
@@ -725,14 +725,14 @@ void FurnaceGUI::updateWindowTitle() {
         } else {
           shortName=curFileName.substr(pos+1);
         }
-        title=fmt::sprintf("%s - Furnace",shortName);
+        title=fmt::sprintf("%s - RFurnace",shortName);
       }
       break;
     case 3:
       if (curFileName.empty()) {
-        title="Furnace";
+        title="RFurnace";
       } else {
-        title=fmt::sprintf("%s - Furnace",curFileName);
+        title=fmt::sprintf("%s - RFurnace",curFileName);
       }
       break;
   }
@@ -1919,7 +1919,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirSong)) workingDirSong=getHomeDir();
       hasOpened=fileDialog->openLoad(
         _("Open File"),
-        {_("compatible files"), "*.fur *.dmf *.mod *.s3m *.xm *.it *.fc13 *.fc14 *.smod *.fc *.ftm *.0cc *.dnm *.eft *.fub *.tfe",
+        {_("compatible files"), "*.rfu *.fur *.dmf *.mod *.s3m *.xm *.it *.fc13 *.fc14 *.smod *.fc *.ftm *.0cc *.dnm *.eft *.fub *.tfe",
          _("all files"), "*"},
         workingDirSong,
         dpiScale
@@ -1932,7 +1932,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       }
       hasOpened=fileDialog->openLoad(
         _("Restore Backup"),
-        {_("Furnace song"), "*.fur"},
+        {_("RFurnace song"), "*.rfu"},
         backupPath+String(DIR_SEPARATOR_STR),
         dpiScale
       );
@@ -1941,7 +1941,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirSong)) workingDirSong=getHomeDir();
       hasOpened=fileDialog->openSave(
         _("Save File"),
-        {_("Furnace song"), "*.fur"},
+        {_("RFurnace song"), "*.rfu"},
         workingDirSong,
         dpiScale
       );
@@ -1978,8 +1978,9 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirIns)) workingDirIns=getHomeDir();
       hasOpened=fileDialog->openLoad(
         _("Load Instrument"),
-        {_("all compatible files"), "*.fui *.dmp *.tfi *.vgi *.eif *.s3i *.sbi *.opli *.opni *.y12 *.bnk *.ff *.gyb *.opm *.wopl *.wopn",
+        {_("all compatible files"), "*.fui *.rfi *.dmp *.tfi *.vgi *.eif *.s3i *.sbi *.opli *.opni *.y12 *.bnk *.ff *.gyb *.opm *.wopl *.wopn",
          _("Furnace instrument"), "*.fui",
+         _("RFurnace instrument"), "*.rfi",
          _("DefleMask preset"), "*.dmp",
          _("TFM Music Maker instrument"), "*.tfi",
          _("VGM Music Maker instrument"), "*.vgi",
@@ -2030,7 +2031,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirIns)) workingDirIns=getHomeDir();
       hasOpened=fileDialog->openSave(
         _("Save Instrument"),
-        {_("Furnace instrument"), "*.fui"},
+        {_("RFurnace instrument"), "*.rfi"},
         workingDirIns,
         dpiScale,
         (settings.autoFillSave)?e->getIns(curIns)->name:""
@@ -2059,7 +2060,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirWave)) workingDirWave=getHomeDir();
       hasOpened=fileDialog->openLoad(
         _("Load Wavetable"),
-        {_("compatible files"), "*.fuw *.dmw",
+        {_("compatible files"), "*.rfw *.fuw *.dmw",
          _("all files"), "*"},
         workingDirWave,
         dpiScale,
@@ -2071,7 +2072,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirWave)) workingDirWave=getHomeDir();
       hasOpened=fileDialog->openSave(
         _("Save Wavetable"),
-        {_("Furnace wavetable"), ".fuw"},
+        {_("RFurnace wavetable"), ".rfw"},
         workingDirWave,
         dpiScale
       );
@@ -5334,7 +5335,7 @@ bool FurnaceGUI::loop() {
         }
         if (fileName!="") {
           if (curFileDialog==GUI_FILE_SAVE) {
-            checkExtension(".fur");
+            checkExtension(".rfu");
           }
           if (curFileDialog==GUI_FILE_SAVE_DMF) {
             checkExtension(".dmf");
@@ -5353,13 +5354,13 @@ bool FurnaceGUI::loop() {
             }
           }
           if (curFileDialog==GUI_FILE_INS_SAVE) {
-            checkExtension(".fui");
+            checkExtension(".rfi");
           }
           if (curFileDialog==GUI_FILE_INS_SAVE_DMP) {
             checkExtension(".dmp");
           }
           if (curFileDialog==GUI_FILE_WAVE_SAVE) {
-            checkExtension(".fuw");
+            checkExtension(".rfw");
           }
           if (curFileDialog==GUI_FILE_WAVE_SAVE_DMW) {
             checkExtension(".dmw");
