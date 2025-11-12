@@ -1919,7 +1919,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirSong)) workingDirSong=getHomeDir();
       hasOpened=fileDialog->openLoad(
         _("Open File"),
-        {_("compatible files"), "*.rfu *.fur *.dmf *.mod *.s3m *.xm *.it *.fc13 *.fc14 *.smod *.fc *.ftm *.0cc *.dnm *.eft *.fub *.tfe",
+        {_("compatible files"), "*.rfu *.a2m *.fur *.dmf *.mod *.s3m *.xm *.it *.fc13 *.fc14 *.smod *.fc *.ftm *.0cc *.dnm *.eft *.fub *.tfe",
          _("all files"), "*"},
         workingDirSong,
         dpiScale
@@ -1932,7 +1932,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       }
       hasOpened=fileDialog->openLoad(
         _("Restore Backup"),
-        {_("RFurnace song"), "*.rfu"},
+        {_("compatible RFurnace song formats"), "*.rfu *.fur *.it *.xm *.s3m *.mod *.a2m"},
         backupPath+String(DIR_SEPARATOR_STR),
         dpiScale
       );
@@ -1941,7 +1941,7 @@ void FurnaceGUI::openFileDialog(FurnaceGUIFileDialogs type) {
       if (!dirExists(workingDirSong)) workingDirSong=getHomeDir();
       hasOpened=fileDialog->openSave(
         _("Save File"),
-        {_("RFurnace song"), "*.rfu"},
+        {_("compatible RFurnace song formats"), "*.rfu *.fur *.it *.xm *.s3m *.mod *.a2m"},   // added the tracker module files if compatible with Ersoniq or Amiga system and the A2M format - if OPL3 or OPL2
         workingDirSong,
         dpiScale
       );
