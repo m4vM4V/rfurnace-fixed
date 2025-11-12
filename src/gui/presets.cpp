@@ -2701,6 +2701,12 @@ void FurnaceGUI::initSystemPresets() {
           CH(DIV_SYSTEM_AY8930, 1.0f, 0, "clockSel=3")
         }
       );
+      SUB_ENTRY(
+        _("REMBOL ADVANCE"), {
+          CH(DIV_SYSTEM_OPL3, 1.0f, 0, "clockSel=1"),
+          CH(DIV_SYSTEM_AY8930, 1.0f, 0, "clockSel=3")
+        }
+      );
       ENTRY(
         _("SlashX Studios"), {}
       );

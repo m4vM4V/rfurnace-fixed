@@ -56,7 +56,7 @@ const char* DivEngine::getEffectDesc(unsigned char effect, int chan, bool notNul
     case 0x01:
       return _("01xx: Pitch slide up (xx: speed)");
     case 0x02:
-      return _("02xx: Pitch slide down (xx: speed)");
+      return _("02Exx: Pitch slide down (xx: speed)");
     case 0x03:
       return _("03xx: Portamento (xx: speed)");
     case 0x04:
