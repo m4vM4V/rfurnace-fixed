@@ -78,7 +78,7 @@ const char* aboutLine[]={
   "Français: fouinne44",
   "Հայերեն: Eknous",
   "한국어: Heemin, leejh20, Nicknamé",
-  "עִברִית: D/V"
+  "עִברִית: D/V",
   "Nederlands: Lunathir",
   "Polski: freq-mod, PoznańskiSzybkowiec",
   "Português (Brasil): Kagamiin~",
