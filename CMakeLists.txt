@@ -1324,6 +1324,15 @@ endif()
 target_include_directories(${FURNACE} SYSTEM PRIVATE ${DEPENDENCIES_INCLUDE_DIRS})
 target_compile_options(${FURNACE} PRIVATE ${DEPENDENCIES_COMPILE_OPTIONS})
 target_link_libraries(${FURNACE} PRIVATE ${DEPENDENCIES_LIBRARIES})
+target_sources(furnace PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/gui.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/ui_fonts.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gui/ui_rtl.cpp
+)
+target_include_directories(furnace PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 if (PKG_CONFIG_FOUND AND (SYSTEM_FMT OR SYSTEM_LIBSNDFILE OR SYSTEM_ZLIB OR SYSTEM_SDL2 OR SYSTEM_RTMIDI OR WITH_JACK))
   if ("${CMAKE_VERSION}" VERSION_LESS "3.13")
     message(WARNING

@@ -40,6 +40,11 @@
 #include <zlib.h>
 #include <fmt/printf.h>
 #include <stdexcept>
+#include <imgui.h>
+#include "ui_rtl.h"
+#include "ui_fonts.h"
+
+
 
 #ifdef _WIN32
 #include <windows.h>
@@ -69,6 +74,13 @@
 #ifdef HAVE_SNDFILE
 #include <sndfile.h>
 #endif
+
+void InitGUI()
+{
+    ImGui::CreateContext();
+    LoadFonts(); // call once here
+}
+
 
 bool Particle::update(float frameTime) {
   pos.x+=speed.x*frameTime;

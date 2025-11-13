@@ -32,6 +32,7 @@
 #include "misc/freetype/imgui_freetype.h"
 #include "scaling.h"
 #include <fmt/printf.h>
+#include "ui_rtl.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -76,6 +77,7 @@ const char* locales[][3]={
   {"Español", "es", "reinicia Furnace para que esta opción tenga efecto."},
   //{"Suomi (0%)", "fi", "käynnistä Furnace uudelleen, jotta tämä asetus tulee voimaan."},
   {"Français (10%)", "fr", "redémarrer Furnace pour que ce réglage soit effectif."},
+  {"Hebrew", "he", "הפעל מחדש את Furnace כדי שהגדרה זו תיכנס לתוקף."},
   //{"Հայերեն (1%)", "hy", "???"},
   //{"日本語 (0%)", "ja", "???"},
   {"한국어 (25%)", "ko", "이 설정을 적용하려면 Furnace를 다시 시작해야 합니다."},
@@ -91,6 +93,76 @@ const char* locales[][3]={
   {"中文 (15%)", "zh", "???"},
   {NULL, NULL, NULL}
 };
+
+// =====================
+// Language Setup
+// =====================
+static const char* languages[] = { "English", "Spanish", "Hebrew", "Arabic", "French" };
+static int currentLanguage = 0;
+static const int languageCount = sizeof(languages) / sizeof(languages[0]);
+
+// =====================
+// General Tab
+// =====================
+void draw_general_tab()
+{
+    ImGui::Text("General settings");
+
+    if (ImGui::Combo("Language", &currentLanguage, languages, languageCount))
+    {
+        const char* selected = languages[currentLanguage];
+
+        // Enable RTL for Hebrew/Arabic automatically
+        if (strcmp(selected, "Hebrew") == 0 || strcmp(selected, "Arabic") == 0)
+            gEnableRTL = true;
+        else
+            gEnableRTL = false;
+
+        // TODO: Reload localization strings if needed
+    }
+
+    ImGui::Text("Current language: %s", languages[currentLanguage]);
+}
+
+// =====================
+// Interface Tab
+// =====================
+void draw_interface_tab()
+{
+    ImGui::Text("Interface settings");
+
+    // Example: other interface checkboxes
+    // ImGui::Checkbox("Show grid", &showGrid);
+    // ImGui::SliderFloat("Opacity", &uiOpacity, 0.0f, 1.0f);
+
+    // RTL toggle checkbox
+    ImGuiRTLToggler();
+}
+
+// =====================
+// Settings Window
+// =====================
+void draw_settings()
+{
+    if (ImGui::BeginTabBar("SettingsTabs"))
+    {
+        if (ImGui::BeginTabItem("General"))
+        {
+            draw_general_tab();
+            ImGui::EndTabItem();
+        }
+
+        if (ImGui::BeginTabItem("Interface"))
+        {
+            draw_interface_tab();
+            ImGui::EndTabItem();
+        }
+
+        // Additional tabs (Audio, Video, etc.) can be added here
+
+        ImGui::EndTabBar();
+    }
+}
 
 const char* fontBackends[]={
   "stb_truetype",
