@@ -112,7 +112,8 @@ void DivEngine::registerROMExports() {
     "register dump-based, unlike normal SAP.\n"
     "for playback, you may use:\n"
     "- Altirra\n"
-    "- lzss-sap (https://github.com/dmsc/lzss-sap/)",
+    "- lzss-sap (https://github.com/dmsc/lzss-sap/)"
+    "for convert you may use ASAP: (https://asap.sourceforge.net/)\n",
     "SAP files", ".sap",
     {
       DIV_SYSTEM_POKEY

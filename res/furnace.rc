@@ -14,6 +14,7 @@
             0x419, 1200, // Russian
             0x41B, 1200, // Slovak
             0x41D, 1200, // Swedish
+            0x431, 1200, // Hebrew
             0x804, 1200 // Chinese (Simplified)
     }
     BLOCK "StringFileInfo"

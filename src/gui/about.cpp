@@ -22,7 +22,7 @@
 #include <math.h>
 
 const char* aboutLine[]={
-  "filippp (originally tildearrow)",
+  "filippp (originally tildearrow, modified by D/V)",
   _N("is proud to present"),
   "",
   ("RFurnace " DIV_VERSION),

@@ -85,6 +85,7 @@ const char* locales[][3]={
   {"Русский", "ru", "перезапустите программу, чтобы эта настройка вступила в силу."},
   {"Slovenčina (15%)", "sk", "???"},
   {"Svenska", "sv", "starta om programmet för att denna inställning ska träda i kraft."},
+	{"עִברִית", "il" "כדי שההגדרה הזו תהיה יעילה, יש להפעיל מחדש את התוכנית."},
   //{"ไทย (0%)", "th", "???"},
   //{"Türkçe (0%)", "tr", "bu ayarı etkin hale getirmek için programı yeniden başlatın."},
   //{"Українська (0%)", "uk", "перезапустіть програму, щоб це налаштування набуло чинності."},
