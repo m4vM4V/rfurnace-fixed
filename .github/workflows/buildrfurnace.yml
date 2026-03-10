@@ -13,7 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: 
+    - name: install things
+      run: sudo apt install build-essentials gcc g++ make
     - name: make build folder
       run: mkdir build
     - name: cd into build dir
