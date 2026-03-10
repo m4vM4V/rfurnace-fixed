@@ -13,11 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: 
     - name: make build folder
       run: mkdir build
     - name: cd into build dir
       run: cd build
     - name: build using cmake
-      run: cmake ..
+      run: cmake -B build ..
     - name: compiling
       run: make -j(nproc)
