@@ -328,14 +328,14 @@ jobs:
         tar -zcv -f ../${{ steps.package-identify.outputs.filename }} furnace
 
     - name: Upload artifact
-      if: ${{ github.repository == 'tildearrow/furnace' && github.ref_name == 'master' }}
+      if: ${{ github.repository == 'm4vM4V/rfurnace' && github.ref_name == 'master' }}
       uses: actions/upload-artifact@v5
       with:
         name: ${{ steps.package-identify.outputs.id }}
         path: ${{ steps.package-identify.outputs.filename }}
 
     - name: Upload 30xx artifact
-      if: ${{ github.repository == 'tildearrow/furnace' && github.ref_name == 'theUltimateFix' }}
+      if: ${{ github.repository == 'm4vM4V/rfurnace' && github.ref_name == 'theUltimateFix' }}
       uses: actions/upload-artifact@v5
       with:
         name: ${{ steps.package-identify.outputs.id }}
